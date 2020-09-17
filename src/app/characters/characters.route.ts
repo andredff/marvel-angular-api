@@ -9,7 +9,7 @@ const charactersRouterConfig: Routes = [
     {
         path: '', component: CharactersAppComponent,
         children: [
-            { path: 'lista', component: ListComponent },
+            { path: 'list', component: ListComponent },
         ]
     }
 ];
