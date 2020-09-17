@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "angular-marvel"
+    }
+  },
+  "defaultProject": "angular-marvel",
+  "cli": {
+    "analytics": false
+  }
 }
