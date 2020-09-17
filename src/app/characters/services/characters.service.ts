@@ -6,6 +6,8 @@ import { Observable } from 'rxjs';
 import { catchError, map, timestamp } from 'rxjs/operators';
 import { BaseService } from 'src/app/services/base.service';
 
+import { MarvelResponse } from './../models/marvelResponse.interface';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -29,11 +31,11 @@ export class CharactersService extends BaseService {
     return new Date().valueOf().toString();
   }
 
-  getCharacters(): Observable<any> {
+  getCharacters(): Observable<MarvelResponse> {
     const ts = this.getTimeStamp();
     const hash = this.getHash(ts);
     const apikey = this.publicKey;
-    const limit = '10';
+    const limit = '12';
 
     let params = new HttpParams();
     params = params.append('ts', ts);

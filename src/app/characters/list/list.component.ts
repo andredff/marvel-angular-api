@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { CharactersService } from '../services/characters.service';
+import { Observable } from 'rxjs';
 
+import { CharactersService } from '../services/characters.service';
+import { Character, Thumbnail } from './../models/marvelResponse.interface';
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
@@ -8,7 +10,8 @@ import { CharactersService } from '../services/characters.service';
 })
 export class ListComponent implements OnInit {
 
-  characters;
+  characters: any;
+  charactersImg: any;
 
   constructor(private characterService: CharactersService) { }
 
@@ -23,5 +26,7 @@ export class ListComponent implements OnInit {
         console.log(this.characters);
       });
   }
+
+
 
 }

@@ -1,6 +1,35 @@
-<p>list works!</p>
+<div class="container-fluid main-container">
+  <div class="character-container">
 
 
-<div *ngFor="let character of characters">
-  <p> {{character.name}} </p>
+
+    <div class="characters-list">
+      <div class="row">
+        <div class="col-12">
+          <h1 class="container-title">Character</h1>
+        </div>
+      </div>
+
+      <ul class="row">
+        <li class="col-md-3" *ngFor="let character of characters">
+          <div class="card text-center character">
+            <div class="card-body">
+              <img [src]="character.thumbnail.path + '.' + character.thumbnail.extension" alt="character image">
+              <p class="character-title"> {{character.name}} </p>
+              <p class="character-subtitle"> {{character.name}} </p>
+              <hr class="line" />
+            </div>
+            <div class="character-description">
+              <p *ngIf="character.description"> {{character.description}}</p>
+              <p *ngIf="!character.description"> Personagem sem descrição... </p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div style="padding: 30px;">
+      <p>3 de 35</p>
+    </div>
+  </div>
 </div>
