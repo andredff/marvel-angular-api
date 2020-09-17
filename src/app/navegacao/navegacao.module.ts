@@ -12,7 +12,8 @@ import { HeaderComponent } from './header/header.component';
   declarations: [
     NotFoundComponent,
     HomeComponent,
-    HeaderComponent],
+    HeaderComponent
+  ],
   imports: [
     CommonModule,
     RouterModule
