@@ -31,18 +31,21 @@ export class CharactersService extends BaseService {
     return new Date().valueOf().toString();
   }
 
-  getCharacters(term?: string, order?: boolean): Observable<MarvelResponse> {
+  getCharacters(term?: string, order?: boolean, page?: string): Observable<MarvelResponse> {
     const ts = this.getTimeStamp();
     const hash = this.getHash(ts);
     const apikey = this.publicKey;
-    const limit = '24';
+    const limit = '100';
     const name = term;
+    const offset = page;
 
     let params = new HttpParams();
     params = params.append('ts', ts);
     params = params.append('apikey', apikey);
     params = params.append('hash', hash);
     params = params.append('limit', limit);
+    params = params.append('offset', offset);
+
 
     if (order) {
       params = params.append('orderBy', '-name');

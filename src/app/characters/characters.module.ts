@@ -4,8 +4,9 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { CharactersRoutingModule } from './characters.route';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+import { CharactersRoutingModule } from './characters.route';
 import { CharactersAppComponent } from './characters.app.component';
 import { ListComponent } from './list/list.component';
 import { CharactersService } from './services/characters.service';
@@ -22,7 +23,8 @@ import { CharactersService } from './services/characters.service';
     RouterModule,
     CharactersRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule
   ],
   providers: [
     CharactersService

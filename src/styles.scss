@@ -15,3 +15,11 @@ body {
 }
 
 
+.page-item.active .page-link {
+  background-color: $red-primary;
+  border-color: $red-primary;
+}
+
+.page-link {
+  color: $red-primary;
+}

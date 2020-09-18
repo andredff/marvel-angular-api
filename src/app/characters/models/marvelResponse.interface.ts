@@ -8,8 +8,6 @@ export interface MarvelResponse {
   count: number;
   results: [];
 }
-
-
 export interface Character {
   id: number;
   name: string;

@@ -14,8 +14,17 @@
         </div>
       </div>
 
-      <ul class="row">
-        <li class="col-md-3" *ngFor="let character of characters">
+      <div *ngIf="!loading" class="loading">
+        carregando...
+        <img src="assets/loading.gif" />
+      </div>
+
+      <div *ngIf="notFound" class="loading">
+        <p>Personagem não encontrado...</p>
+      </div>
+
+      <ul class="row" *ngIf="loading">
+        <li class="col-md-3" *ngFor="let character of characters | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
           <div class="card text-center character">
             <div class="card-body">
               <img [src]="character.thumbnail.path + '.' + character.thumbnail.extension" alt="character image">
@@ -32,8 +41,10 @@
       </ul>
     </div>
 
-    <div style="padding: 30px;">
-      <p>3 de 35</p>
-    </div>
+    <div class="pagination">
+        <ngb-pagination [collectionSize]="totalCharacters" [(page)]="page" [maxSize]="5"></ngb-pagination>
+      </div>
   </div>
 </div>
+
+
