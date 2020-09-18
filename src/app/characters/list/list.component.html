@@ -1,12 +1,16 @@
 <div class="container-fluid main-container">
   <div class="character-container">
-
-
-
     <div class="characters-list">
-      <div class="row">
-        <div class="col-12">
-          <h1 class="container-title">Character</h1>
+      <div class="row characters-list-header">
+        <div class="col-md-12">
+          <h1 class="characters-list-header-title">Character</h1>
+        </div>
+        <div class="col-md-3">
+          <input class="form-control search-input" placeholder="Characters" [formControl]="queryField" />
+        </div>
+        <div class="col-md-1 characters-list-header-search">
+          <img src="assets/filter.svg" alt="filtro">
+            <a class="orderBy" (click)="orderByName()"> A-Z <i [className]="order ? 'fa fa-angle-down' : 'fa fa-angle-up'" aria-hidden="true"></i></a>
         </div>
       </div>
 

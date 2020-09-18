@@ -22,7 +22,7 @@ export class CharactersService extends BaseService {
     hashGenerator.appendStr(this.privateKey);
     hashGenerator.appendStr(this.publicKey);
 
-    let hash: string = hashGenerator.end().toString();
+    const hash: string = hashGenerator.end().toString();
 
     return hash;
   }
@@ -31,11 +31,12 @@ export class CharactersService extends BaseService {
     return new Date().valueOf().toString();
   }
 
-  getCharacters(): Observable<MarvelResponse> {
+  getCharacters(term?: string, order?: boolean): Observable<MarvelResponse> {
     const ts = this.getTimeStamp();
     const hash = this.getHash(ts);
     const apikey = this.publicKey;
-    const limit = '12';
+    const limit = '24';
+    const name = term;
 
     let params = new HttpParams();
     params = params.append('ts', ts);
@@ -43,12 +44,20 @@ export class CharactersService extends BaseService {
     params = params.append('hash', hash);
     params = params.append('limit', limit);
 
+    if (order) {
+      params = params.append('orderBy', '-name');
+    }
+
+    if (term) {
+      params = params.append('nameStartsWith', name);
+    }
+
     const response = this.http
-      .get(this.UrlServiceV1, { params } )
-        .pipe(
-          map(this.extractData),
-          catchError(this.serviceError)
-          );
+      .get(this.UrlServiceV1, { params })
+      .pipe(
+        map(this.extractData),
+        catchError(this.serviceError)
+      );
 
     return response;
   }

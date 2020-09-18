@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { CharactersRoutingModule } from './characters.route';
 
@@ -20,7 +21,8 @@ import { CharactersService } from './services/characters.service';
     CommonModule,
     RouterModule,
     CharactersRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [
     CharactersService
