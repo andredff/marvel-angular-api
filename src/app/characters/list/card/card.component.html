@@ -1,0 +1,23 @@
+<div>
+  <ul class="row">
+    <li class="col-md-3" *ngFor="let character of characters | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+      <div class="card text-center character">
+        <div class="card-body">
+          <img [src]="character.thumbnail.path + '.' + character.thumbnail.extension" alt="character image">
+          <p class="character-title"> {{character.name}} </p>
+          <p class="character-subtitle"> {{character.name}} </p>
+          <hr class="line" />
+        </div>
+        <div class="character-description">
+          <p *ngIf="character.description"> {{character.description}}</p>
+          <p *ngIf="!character.description"> Personagem sem descrição... </p>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="pagination">
+  <!-- refatorar para receber total de personagens e paginar async -->
+  <ngb-pagination [collectionSize]="characters.length" [(page)]="page" (pageChange)="click(page)" [maxSize]="5" ></ngb-pagination>
+</div>

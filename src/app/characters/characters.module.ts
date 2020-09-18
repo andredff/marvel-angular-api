@@ -10,13 +10,15 @@ import { CharactersRoutingModule } from './characters.route';
 import { CharactersAppComponent } from './characters.app.component';
 import { ListComponent } from './list/list.component';
 import { CharactersService } from './services/characters.service';
+import { CardComponent } from './list/card/card.component';
 
 
 
 @NgModule({
   declarations: [
     CharactersAppComponent,
-    ListComponent
+    ListComponent,
+    CardComponent
   ],
   imports: [
     CommonModule,

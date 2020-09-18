@@ -13,37 +13,16 @@
             <a class="orderBy" (click)="orderByName()"> A-Z <i [className]="order ? 'fa fa-angle-down' : 'fa fa-angle-up'" aria-hidden="true"></i></a>
         </div>
       </div>
-
       <div *ngIf="!loading" class="loading">
         carregando...
         <img src="assets/loading.gif" />
       </div>
-
       <div *ngIf="notFound" class="loading">
         <p>Personagem não encontrado...</p>
       </div>
 
-      <ul class="row" *ngIf="loading">
-        <li class="col-md-3" *ngFor="let character of characters | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
-          <div class="card text-center character">
-            <div class="card-body">
-              <img [src]="character.thumbnail.path + '.' + character.thumbnail.extension" alt="character image">
-              <p class="character-title"> {{character.name}} </p>
-              <p class="character-subtitle"> {{character.name}} </p>
-              <hr class="line" />
-            </div>
-            <div class="character-description">
-              <p *ngIf="character.description"> {{character.description}}</p>
-              <p *ngIf="!character.description"> Personagem sem descrição... </p>
-            </div>
-          </div>
-        </li>
-      </ul>
+      <app-card *ngIf="loading" [getCharacters]="characters" [totalCharacters]="totalCharacters"></app-card>
     </div>
-
-    <div class="pagination">
-        <ngb-pagination [collectionSize]="totalCharacters" [(page)]="page" [maxSize]="5"></ngb-pagination>
-      </div>
   </div>
 </div>
 

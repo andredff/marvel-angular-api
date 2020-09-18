@@ -18,10 +18,6 @@ export class ListComponent implements OnInit {
   totalCharacters: number;
   loading = false;
   notFound = false;
-  page = 1;
-  pageSize = 12;
-
-
 
   constructor(private characterService: CharactersService) { }
 
@@ -38,7 +34,6 @@ export class ListComponent implements OnInit {
         this.characters = res.results;
       });
     this.loading = false;
-
   }
 
   searchByName() {
@@ -54,7 +49,7 @@ export class ListComponent implements OnInit {
       .subscribe(res => {
         this.loading = true;
         this.characters = res.results;
-        if (this.characters.length < 1) {
+        if (this.characters.length === 0) {
           this.notFound = true;
         } else {
           this.notFound = false;
@@ -67,7 +62,5 @@ export class ListComponent implements OnInit {
     this.order = !this.order;
     this.getList();
   }
-
-
 
 }
