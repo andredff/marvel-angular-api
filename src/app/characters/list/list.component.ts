@@ -36,7 +36,6 @@ export class ListComponent implements OnInit {
         this.loading = true;
         this.totalCharacters = res.total;
         this.characters = res.results;
-        console.log(this.characters);
       });
     this.loading = false;
 
@@ -55,7 +54,6 @@ export class ListComponent implements OnInit {
       .subscribe(res => {
         this.loading = true;
         this.characters = res.results;
-        console.log('res', this.characters);
         if (this.characters.length < 1) {
           this.notFound = true;
         } else {

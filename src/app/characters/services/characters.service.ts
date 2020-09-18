@@ -46,11 +46,9 @@ export class CharactersService extends BaseService {
     params = params.append('limit', limit);
     params = params.append('offset', offset);
 
-
     if (order) {
       params = params.append('orderBy', '-name');
     }
-
     if (term) {
       params = params.append('nameStartsWith', name);
     }
